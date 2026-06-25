@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE — Premium Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SVG icon defs (hidden, referenced by use) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <!-- cart -->
+    <symbol id="ico-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+    </symbol>
+    <!-- arrow right -->
+    <symbol id="ico-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+    </symbol>
+    <!-- bolt/flash -->
+    <symbol id="ico-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    </symbol>
+    <!-- shield check -->
+    <symbol id="ico-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
+    </symbol>
+    <!-- bag/shopping bag -->
+    <symbol id="ico-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 0 1-8 0"/>
+    </symbol>
+    <!-- store -->
+    <symbol id="ico-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+    </symbol>
+    <!-- dollar -->
+    <symbol id="ico-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <!-- bar chart -->
+    <symbol id="ico-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+    </symbol>
+    <!-- smile -->
+    <symbol id="ico-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+    </symbol>
+    <!-- clock -->
+    <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <!-- heart -->
+    <symbol id="ico-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </symbol>
+    <!-- check -->
+    <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <!-- menu -->
+    <symbol id="ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </symbol>
+    <!-- facebook -->
+    <symbol id="ico-fb" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    </symbol>
+    <!-- twitter/x -->
+    <symbol id="ico-tw" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+    </symbol>
+    <!-- instagram -->
+    <symbol id="ico-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+    </symbol>
+    <!-- pinterest -->
+    <symbol id="ico-pin" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.44 7.63 11.21-.1-.95-.2-2.4.04-3.44.22-.92 1.46-6.19 1.46-6.19s-.37-.75-.37-1.86c0-1.74 1.01-3.04 2.27-3.04 1.07 0 1.59.8 1.59 1.77 0 1.08-.69 2.7-1.04 4.2-.3 1.26.62 2.28 1.85 2.28 2.22 0 3.94-2.34 3.94-5.72 0-2.99-2.15-5.08-5.22-5.08-3.56 0-5.65 2.67-5.65 5.43 0 1.08.41 2.23.93 2.86a.37.37 0 0 1 .09.36c-.1.39-.31 1.26-.35 1.44-.06.23-.2.28-.45.17-1.66-.77-2.7-3.21-2.7-5.17 0-4.2 3.05-8.06 8.8-8.06 4.62 0 8.21 3.29 8.21 7.69 0 4.59-2.89 8.28-6.91 8.28-1.35 0-2.62-.7-3.06-1.53l-.83 3.1c-.3 1.15-1.11 2.6-1.66 3.48A12 12 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/>
+    </symbol>
+    <!-- youtube -->
+    <symbol id="ico-yt" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0a0a0f"/>
+    </symbol>
+    <!-- apple -->
+    <symbol id="ico-apple" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+    </symbol>
+    <!-- google play -->
+    <symbol id="ico-gp" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3.18 23.76a2 2 0 0 0 2.07-.22l11.1-6.42-2.5-2.5-10.67 9.14zM.5 1.33A2 2 0 0 0 0 2.5v19a2 2 0 0 0 .5 1.17l.07.06 10.64-10.64v-.25L.57 1.27l-.07.06zM20.49 10.58l-2.83-1.64-2.82 2.82 2.82 2.82 2.84-1.64a2 2 0 0 0 0-3.36zM5.25.46L16.35 6.88l-2.5 2.5L3.18.46A2 2 0 0 1 5.25.46z"/>
+    </symbol>
+    <!-- star full -->
+    <symbol id="ico-star" viewBox="0 0 24 24" fill="currentColor">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <!-- star half -->
+    <symbol id="ico-star-h" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2v15.77l-6.18 3.25 1.18-6.88-5-4.87 6.91-1.01L12 2z"/>
+      <path d="M12 2l3.09 6.26 6.91 1.01-5 4.87 1.18 6.88L12 17.77V2z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <!-- star empty -->
+    <symbol id="ico-star-e" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <!-- paypal -->
+    <symbol id="ico-paypal" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M7.08 4.5C5.53 4.5 4.2 5.56 3.95 7.07L2.05 18.5h3.5l.5-3h2.5c3.5 0 6-1.5 6.5-5 .38-2.67-1.25-4.5-4-4.5H7.08zm1.67 2.5h1.75c1.25 0 1.75.75 1.5 2-.25 1.5-1.25 2-2.5 2H7.75l1-4zm9-2.5c-1.55 0-2.88 1.06-3.13 2.57L12.72 18.5h3.5l.5-3h2.5c3.5 0 6-1.5 6.5-5 .38-2.67-1.25-4.5-4-4.5h-3.47zm1.67 2.5h1.75c1.25 0 1.75.75 1.5 2-.25 1.5-1.25 2-2.5 2h-1.75l1-4z"/>
+    </symbol>
+    <!-- mastercard -->
+    <symbol id="ico-mc" viewBox="0 0 24 24" fill="currentColor">
+      <rect x="1" y="4" width="22" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="9" cy="12" r="4" fill="#eb001b" opacity=".9"/>
+      <circle cx="15" cy="12" r="4" fill="#f79e1b" opacity=".9"/>
+    </symbol>
+    <!-- visa -->
+    <symbol id="ico-visa" viewBox="0 0 24 24" fill="currentColor">
+      <rect x="1" y="4" width="22" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="4" y="15" font-size="7" font-weight="800" fill="currentColor" font-family="sans-serif">VISA</text>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- HEADER -->
+<section id="header">
+    <div class="logo-text">LUXE</div>
+    <div>
+        <ul id="navbar">
+            <li><a class="active" href="#hero">Home</a></li>
+            <li><a href="#fe-po">Shop</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <a href="#" class="cart-link">
+                    <svg class="icon" width="20" height="20"><use href="#ico-cart"/></svg>
+                    <span class="cart-badge">3</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <button class="toogle" aria-label="Menu">
+        <svg class="icon" width="24" height="24"><use href="#ico-menu"/></svg>
+    </button>
+</section>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-content">
+        <div class="hero-tag">
+            <span class="dot"></span>
+            Trade-in offer · Up to 70% off
+        </div>
+        <h1>Super value<br>deals on <em>all<br>products</em></h1>
+        <p>Save more with exclusive coupons and curated<br>collections. New drops every week.</p>
+        <div class="hero-actions">
+            <a href="#fe-po" class="btn-primary">
+                Shop Now
+                <svg class="icon" width="18" height="18"><use href="#ico-arrow-r"/></svg>
+            </a>
+            <a href="#banner2" class="btn-ghost">
+                View Deals
+                <svg class="icon" width="18" height="18"><use href="#ico-bolt"/></svg>
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><h3>50K+</h3><p>Happy customers</p></div>
+            <div class="hero-stat"><h3>12K+</h3><p>Products listed</p></div>
+            <div class="hero-stat"><h3>4.9★</h3><p>Average rating</p></div>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Featured product">
+            <div class="floating-card fc1">
+                <div class="fc-icon teal"><svg class="icon" width="18" height="18"><use href="#ico-shield"/></svg></div>
+                <div>
+                    <div class="fc-label">Verified Purchase</div>
+                    <div class="fc-value">★★★★★ 4.9/5</div>
+                </div>
+            </div>
+            <div class="floating-card fc2">
+                <div class="fc-icon purple"><svg class="icon" width="18" height="18"><use href="#ico-bolt"/></svg></div>
+                <div>
+                    <div class="fc-label">Flash Sale Ends In</div>
+                    <div class="fc-value" id="timer">02:14:37</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="feature">
+    <div class="features-grid">
+        <div class="fe-box" id="f1">
+            <div class="fe-icon"><svg class="icon" width="32" height="32"><use href="#ico-bag"/></svg></div>
+            <span>Free Shipping</span>
+        </div>
+        <div class="fe-box" id="f2">
+            <div class="fe-icon"><svg class="icon" width="32" height="32"><use href="#ico-store"/></svg></div>
+            <span>Online Order</span>
+        </div>
+        <div class="fe-box" id="f3">
+            <div class="fe-icon"><svg class="icon" width="32" height="32"><use href="#ico-dollar"/></svg></div>
+            <span>Save Money</span>
+        </div>
+        <div class="fe-box" id="f4">
+            <div class="fe-icon"><svg class="icon" width="32" height="32"><use href="#ico-chart"/></svg></div>
+            <span>Promotions</span>
+        </div>
+        <div class="fe-box" id="f5">
+            <div class="fe-icon"><svg class="icon" width="32" height="32"><use href="#ico-smile"/></svg></div>
+            <span>Happy Sell</span>
+        </div>
+        <div class="fe-box" id="f6">
+            <div class="fe-icon"><svg class="icon" width="32" height="32"><use href="#ico-clock"/></svg></div>
+            <span>24/7 Support</span>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTS HEADER -->
+<div class="section-header">
+    <div class="section-tag">New Arrivals</div>
+    <h2>Featured Products</h2>
+    <p>Summer Collection — Modern Design</p>
+</div>
+
+<!-- PRODUCTS GRID -->
+<section id="fe-po">
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="SR4 Shoes">
+            <span class="pro-badge">HOT</span>
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Adidas</div>
+            <h5>SR4 Running Shoes</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <span class="review-count">(128)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$78 <small>$110</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80" alt="T-Shirt">
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Gucci</div>
+            <h5>Cartoon Astronaut T-Shirt</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <span class="review-count">(94)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$104 <small>$160</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=600&q=60" alt="Shorts">
+            <span class="pro-badge">SALE</span>
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Netle</div>
+            <h5>Shorts For Girls</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <span class="review-count">(76)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$15 <small>$30</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80" alt="GPU">
+            <span class="pro-badge">NEW</span>
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Gigabyte</div>
+            <h5>RTX 1080 Prime GPU</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star-h"/></svg>
+                <span class="review-count">(213)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$250 <small>$350</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1543721241-adfe6a33fd2e?auto=format&fit=crop&w=600&q=80" alt="Dolls">
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Yum-Yum</div>
+            <h5>Dolls for Couples</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <span class="review-count">(42)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$5 <small>$12</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=600&q=80" alt="Jacket">
+            <span class="pro-badge">HOT</span>
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Adidas</div>
+            <h5>G450X Prime Jacket</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star-e"/></svg>
+                <span class="review-count">(87)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$140 <small>$200</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1560801530-34efebfecba8?auto=format&fit=crop&w=600&q=80" alt="Ice Cream">
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Amool</div>
+            <h5>Mix Flavour Ice-Cream</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <span class="review-count">(59)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$50 <small>$70</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro">
+        <div class="pro-img-wrap">
+            <img src="https://images.unsplash.com/photo-1615486364462-ef6363adbc18?auto=format&fit=crop&w=600&q=80" alt="Socks">
+            <span class="pro-badge">DEAL</span>
+            <button class="pro-wishlist"><svg class="icon" width="16" height="16"><use href="#ico-heart"/></svg></button>
+        </div>
+        <div class="pro-body">
+            <div class="pro-brand">Yum-Yum</div>
+            <h5>3 Pairs of Kids Socks</h5>
+            <div class="stars">
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <svg class="icon" width="14" height="14"><use href="#ico-star"/></svg>
+                <span class="review-count">(35)</span>
+            </div>
+            <div class="pro-footer">
+                <div class="pro-price">$9 <small>$18</small></div>
+                <button class="add-to-cart">
+                    <svg class="icon" width="14" height="14"><use href="#ico-cart"/></svg> Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- DEAL BANNERS -->
+<div class="section-header" style="padding-top:20px;">
+    <div class="section-tag">Limited Time</div>
+    <h2>Crazy Deals</h2>
+</div>
+<section id="banner2">
+    <div class="ban2" style="background-image:url('https://images.unsplash.com/photo-1510070009289-b5bc34383727?auto=format&fit=crop&w=1400&q=80')">
+        <div class="det2">
+            <h6>Crazy Deals</h6>
+            <h3>Buy 1<br>Get 1 Free</h3>
+            <p>The best classic dress is on sale at LUXE</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+    <div class="ban2" style="background-image:url('https://images.unsplash.com/photo-1640938776314-4d303f8a1380?auto=format&fit=crop&w=1400&q=80')">
+        <div class="det2">
+            <h6>Exclusive Offer</h6>
+            <h3>Buy 1<br>Get 1 Free</h3>
+            <p>Limited edition collections at unbeatable prices</p>
+            <button>Shop Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORY BANNERS -->
+<section id="banner3">
+    <div class="ban3" style="background-image:url('https://images.unsplash.com/photo-1484863137850-59afcfe05386?auto=format&fit=crop&w=900&q=80')">
+        <h3>Seasonal Sale</h3><p>Winter Collection — 50% Off</p>
+    </div>
+    <div class="ban3" style="background-image:url('https://images.unsplash.com/photo-1606092195808-3107b7ed4c98?auto=format&fit=crop&w=900&q=80')">
+        <h3>New Footwear Collection</h3><p>Spring / Summer 2024</p>
+    </div>
+    <div class="ban3" style="background-image:url('https://images.unsplash.com/photo-1524749292158-7540c2494485?auto=format&fit=crop&w=900&q=80')">
+        <h3>T-Shirts</h3><p>New Trending Deals</p>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="news">
+    <div class="n1">
+        <h4>Sign Up For Newsletters</h4>
+        <p>Get email updates about our latest drops and <span>special offers.</span></p>
+    </div>
+    <div class="n2">
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<section id="footer">
+    <div class="f1">
+        <div class="logo-text" style="font-size:20px;margin-bottom:20px;">LUXE</div>
+        <h6>Contact</h6>
+        <p>Address: <span>Lucknow, India</span></p>
+        <p>Phone: <span>+91 639-540-2115</span></p>
+        <p>Hours: <span>10:00 – 18:00, Mon – Sat</span></p>
+        <h6>Follow Us</h6>
+        <div class="media">
+            <a href="#" title="Facebook"><svg class="icon" width="17" height="17"><use href="#ico-fb"/></svg></a>
+            <a href="#" title="Twitter"><svg class="icon" width="17" height="17"><use href="#ico-tw"/></svg></a>
+            <a href="#" title="Instagram"><svg class="icon" width="17" height="17"><use href="#ico-ig"/></svg></a>
+            <a href="#" title="Pinterest"><svg class="icon" width="17" height="17"><use href="#ico-pin"/></svg></a>
+            <a href="#" title="YouTube"><svg class="icon" width="17" height="17"><use href="#ico-yt"/></svg></a>
+        </div>
+    </div>
+    <div class="f1" id="foot2">
+        <h6>About</h6>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Info</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="f1" id="foot2">
+        <h6>My Account</h6>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+    </div>
+    <div class="f1">
+        <h6>Install App</h6>
+        <p style="margin-bottom:10px;">From App Store or Google Play</p>
+        <div class="install">
+            <div class="app">
+                <span class="app-icon"><svg class="icon" width="22" height="22" style="color:var(--text2)"><use href="#ico-apple"/></svg></span>
+                <div><p>Download on the</p><h2>App Store</h2></div>
+            </div>
+            <div class="app">
+                <span class="app-icon"><svg class="icon" width="22" height="22" style="color:var(--text2)"><use href="#ico-gp"/></svg></span>
+                <div><p>Get it on</p><h2>Play Store</h2></div>
+            </div>
+        </div>
+        <h6>Secure Payments</h6>
+        <div class="pay" style="display:flex;gap:10px;align-items:center;">
+            <svg class="icon" width="32" height="32" style="color:var(--text3)"><use href="#ico-paypal"/></svg>
+            <svg class="icon" width="32" height="32" style="color:var(--text3)"><use href="#ico-mc"/></svg>
+            <svg class="icon" width="32" height="32" style="color:var(--text3)"><use href="#ico-visa"/></svg>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 LUXE Store — All rights reserved</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
